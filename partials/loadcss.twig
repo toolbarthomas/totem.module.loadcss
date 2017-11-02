@@ -16,9 +16,13 @@
         {% endfor %}
     </noscript>
     <script>
+        {# Define a base directory to include the loadCss Javascript files #}
+        {% set directory = (base|default('node_modules')) %}
+
         {% spaceless %}
-            {% include dir|default('tmp') ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/loadCSS.min.js' ignore missing %}
-            {% include dir|default('tmp') ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/cssrelpreload.min.js' ignore missing %}
+            {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/loadCSS.min.js' ignore missing %}
+            {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/cssrelpreload.min.js' ignore missing %}
+            {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/onloadCSS.min.js' ignore missing %}
         {% endspaceless %}
     </script>
 
