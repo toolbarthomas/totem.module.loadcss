@@ -15,6 +15,8 @@ $ npm install totem.module.loadcss --save
 In the following example we will include loadcss.twig from our default page.
 You can define multiple stylesheets at the include. You this by defining the **stylesheets** parameter.
 
+### Source
+
 ```twig
 <head>
     ...
@@ -29,9 +31,32 @@ You can define multiple stylesheets at the include. You this by defining the **s
 </head>
 ```
 
+
+### Result:
+
+```html
+<link rel="preload" href="foo.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="bar.css" as="style" onload="this.rel='stylesheet'">
+
+<noscript>
+    <link rel="stylesheet" href="foo.css">
+    <link rel="stylesheet" href="bar.css">
+</noscript>
+<script>
+    /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+    (function(){ ... }()); /* loadCSS.min.js */
+    (function(){ ... }()); /* cssrelpreload.min.js */
+</script>
+
+```
+
+## Include onloadCSS.js
+This module will output the Javascript functions for browser that support the onload event.
+You can extend the ouput by setting the **include_onload_fallback** parameter to *true*
+
 ## Include loadCSS scripts from another location than *node_modules*
 loadcss.twig will include the loadCSS Javascript Functions from itself.
-You can include the loadCSS Javascript files from another location by defining the *base* parameter.
+You can include the loadCSS Javascript files from another location by defining the **base** parameter.
 
 Using the *base* parameter is optional since we asum you can access the node_modules directory.
 The loadCSS javascript file will also be synced to your **dist**

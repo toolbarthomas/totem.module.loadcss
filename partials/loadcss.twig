@@ -22,7 +22,9 @@
         {% spaceless %}
             {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/loadCSS.min.js' ignore missing %}
             {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/cssrelpreload.min.js' ignore missing %}
-            {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/onloadCSS.min.js' ignore missing %}
+            {% if include_onload_fallback is same as(true) %}
+                {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/onloadCSS.min.js' ignore missing %}
+            {% endif %}
         {% endspaceless %}
     </script>
 
