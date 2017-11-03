@@ -54,11 +54,11 @@ You can define multiple stylesheets at the include. You this by defining the **s
 This module will output the Javascript functions for browser that support the onload event.
 You can extend the ouput by setting the **include_onload_fallback** parameter to *true*
 
-## Include loadCSS scripts from another location than *node_modules*
+## Base parameter
 loadcss.twig will include the loadCSS Javascript Functions from itself.
 You can include the loadCSS Javascript files from another location by defining the **base** parameter.
 
-Using the *base* parameter is optional since we asum you can access the node_modules directory.
+Using the *base* parameter is optional since we asum you can use the totem_submodules:: namespace.
 The loadCSS javascript file will also be synced to your **dist**
 When using this module within the Totem project structure.
 
