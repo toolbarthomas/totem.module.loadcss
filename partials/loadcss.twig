@@ -17,7 +17,7 @@
     </noscript>
     <script>
         {# Define a base directory to include the loadCss Javascript files #}
-        {% set directory = (base|default('node_modules')) %}
+        {% set directory = (base|default('totem_submodules::')) %}
 
         {% spaceless %}
             {% include directory ~ '/totem.module.loadcss/javascripts/lib/fg-loadcss/loadCSS.min.js' ignore missing %}
